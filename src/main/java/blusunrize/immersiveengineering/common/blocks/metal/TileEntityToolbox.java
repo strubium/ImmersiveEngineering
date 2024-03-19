@@ -63,7 +63,7 @@ public class TileEntityToolbox extends TileEntityIEBase implements IDirectionalT
 		nbt.setInteger("facing", facing.ordinal());
 		if(this.name!=null)
 			nbt.setString("name", this.name);
-		if(this.enchantments!=null)
+		if(this.enchantments!=null && !this.enchantments.hasNoTags())
 			nbt.setTag("enchantments", this.enchantments);
 		if(!descPacket)
 			nbt.setTag("inventory", Utils.writeInventory(inventory));
@@ -137,7 +137,7 @@ public class TileEntityToolbox extends TileEntityIEBase implements IDirectionalT
 		((ItemInternalStorage)IEItems.toolbox).setContainedItems(stack, inventory);
 		if(this.name!=null)
 			stack.setStackDisplayName(this.name);
-		if(enchantments!=null)
+		if(enchantments!=null && !this.enchantments.hasNoTags())
 			ItemNBTHelper.getTag(stack).setTag("ench", enchantments);
 		return stack;
 	}
