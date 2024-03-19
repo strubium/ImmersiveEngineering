@@ -158,6 +158,8 @@ public class Config
 			@Comment({"The Flux per tick that the Diesel Generator will output. The burn time of the fuel determines the total output"})
 			@Mapped(mapClass = Config.class, mapName = "manual_int")
 			public static int dieselGen_output = 4096;
+			@Comment({"Should IE register fuels for the Diesel Generator? if this is set true, IE will overwrite custom values set by crafttweaker. The default fuels are <fluid:fuel>, <fluid:diesel> and <fluid:biodiesel>"})
+			public static boolean diesel_registerFuels = true;
 
 			//Simple Machines
 			@Comment({"The Flux per tick consumed to add one heat to a furnace. Creates up to 4 heat in the startup time and then 1 heat per tick to keep it running"})
